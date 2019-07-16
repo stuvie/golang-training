@@ -15,7 +15,13 @@ import (
 // curl http://localhost:3000/someYAML
 // curl http://localhost:3000/resolv
 // curl -v http://localhost:3000/cookie
+// go get github.com/stretchr/testify
 func main() {
+	r := setupRouter()
+	r.Run(":3000") // listen and serve on 0.0.0.0:3000
+}
+
+func setupRouter() *gin.Engine {
 	r := gin.Default()
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
@@ -56,5 +62,5 @@ func main() {
 		fmt.Printf("Cookie value: %s \n", cookie)
 	})
 
-	r.Run(":3000") // listen and serve on 0.0.0.0:3000
+	return r
 }
