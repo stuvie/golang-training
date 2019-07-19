@@ -14,6 +14,8 @@ go test
 
 go run robots.go
 curl http://localhost:3000/ping
+curl http://localhost:3000/robots/api/v1.0/recipes
+curl http://home.fywss.com/robots/api/v1.0/recipes
 
 # Insert some test data
 
